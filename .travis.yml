@@ -1,31 +1,10 @@
 language: python
 python:
 - '2.7'
-addons:
-  apt:
-    packages:
-    - texlive-latex-recommended
-    - texlive-latex-extra
-    - texlive-fonts-recommended
-    - texlive-font-utils
-    - texlive-generic-recommended
-    - psutils
-    - ps2eps
-    - dvidvi
-    - purifyeps
-    - t1utils
-    - dot2tex
-    - texlive-luatex
-    - lmodern
-    - tipa
-    - prosper
-    - latex-beamer
-    - latex-xcolor
-    - pgf
+sudo: true
+before_install:
+- sudo apt install texlive-latex-recommended texlive-latex-extra texlive-fonts-recommended texlive-font-utils texlive-generic-recommended
 script:
-- apt list --installed
-- epstopdf
-- dvips
 - (cd sheets; LATEX_OPTS="-interaction=nonstopmode -shell-escape" make pdfrelease)
 deploy:
   provider: releases
