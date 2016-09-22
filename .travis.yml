@@ -3,7 +3,7 @@ python:
 - '2.7'
 sudo: true
 before_install:
-- sudo apt-get install texlive-latex-recommended texlive-latex-extra texlive-fonts-recommended texlive-font-utils texlive-generic-recommended
+- sudo apt-get install texlive-latex-recommended texlive-latex-extra texlive-fonts-recommended texlive-font-utils texlive-generic-recommended purifyeps
 script:
 - (cd sheets; LATEX_OPTS="-interaction=nonstopmode -shell-escape" make pdfrelease)
 deploy:
