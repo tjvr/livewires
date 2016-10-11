@@ -90,11 +90,11 @@ COPYING.txt: COPYING.txt.src $(SOURCES) mkcopying.py
 ../release/livewires-pdfs.zip: all README.md COPYING.txt CHANGES.txt ../release
 	zip ../release/livewires-pdfs.zip ./*.pdf games/*.pdf $(PDFAUX)
 
-../release/livewires-ltx.tar.gz: $(SOURCES) $(AUX) ../release
+../release/livewires-ltx.zip: $(SOURCES) $(AUX) ../release
 	tar --dereference -cvf ../release/livewires-ltx.tar $(SOURCES) $(AUX)
 	gzip --force --best ../release/livewires-ltx.tar
 
-pdfrelease: ../release/livewires-pdfs.tar.gz
+pdfrelease: ../release/livewires-pdfs.zip
 
-srcrelease: ../release/livewires-ltx.tar.gz
+srcrelease: ../release/livewires-ltx.zip
 
